@@ -11,7 +11,9 @@
   "instagram": {
     "only_reels": true,
     "title_max_length": 200,
-    "exclude_shortcodes": [],
+    "exclude_shortcodes": [
+      "DgJ4EP8hkso"
+    ],
     "exclude_if_caption_contains": []
   }
 }
