@@ -80,6 +80,15 @@ def main() -> int:
     media = fetch_all(token)
     if CFG.get("only_reels", True):
         media = [m for m in media if m.get("media_product_type") == "REELS" or m.get("media_type") == "VIDEO"]
+    total = len(media)
+    skip_codes = set(CFG.get("exclude_shortcodes", []))
+    skip_words = [w for w in CFG.get("exclude_if_caption_contains", []) if w]
+    media = [
+        m for m in media
+        if shortcode(m["permalink"]) not in skip_codes
+        and not any(w in (m.get("caption") or "") for w in skip_words)
+    ]
+    print(f"제외 설정으로 뺀 게시물 {total - len(media)}개")
     if not media:
         print("가져온 게시물이 0개라서 기존 목록을 그대로 둡니다.", file=sys.stderr)
         return 1
