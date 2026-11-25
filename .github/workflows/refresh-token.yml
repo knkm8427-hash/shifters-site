@@ -1,0 +1,25 @@
+name: 인스타 토큰 연장
+
+# 인스타 장기 토큰은 60일 뒤 만료됩니다. 매주 한 번 연장해서 자동 연동이 끊기지 않게 합니다.
+# 필요한 Secrets: IG_ACCESS_TOKEN, GH_PAT (이 저장소의 Secrets 쓰기 권한이 있는 토큰)
+
+on:
+  schedule:
+    - cron: "43 2 * * 1"   # 매주 월요일
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 토큰 연장 후 Secret 갱신
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          set -e
+          resp=$(curl -sf "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${IG_ACCESS_TOKEN}")
+          new=$(echo "$resp" | python3 -c "import sys,json;print(json.load(sys.stdin)['access_token'])")
+          echo "::add-mask::$new"
+          gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body "$new"
+          echo "토큰 연장 완료"

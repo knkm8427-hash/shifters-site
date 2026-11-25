@@ -1,0 +1,52 @@
+.portfolio-section { padding-block: var(--section-space); }
+.portfolio-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 48px; }
+.portfolio-heading .section-label { margin-bottom: 16px; }
+.portfolio-count { color: var(--color-muted); font-size: 12px; letter-spacing: .1em; }
+.work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 28px; }
+.work-card { min-width: 0; position: relative; }
+.work-card__media { position: relative; aspect-ratio: 9 / 12; background: var(--color-surface); border: 1px solid var(--color-line); overflow: hidden; display: grid; place-items: center; }
+.work-card__media video, .work-card__media img { width: 100%; height: 100%; object-fit: contain; background: #171717; }
+.work-card__placeholder { color: var(--color-muted); font-size: 12px; letter-spacing: .15em; }
+.work-card__meta { display: flex; justify-content: space-between; gap: 12px; color: var(--color-muted); font-size: 10px; letter-spacing: .08em; margin-top: 18px; }
+/* Reserve two lines so short and long titles keep identical card spacing. */
+.work-card__title {
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.4;
+  height: 2.8em;
+  margin: 10px 0 0;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.work-card__link { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; text-decoration: underline; text-underline-offset: 5px; }
+.portfolio-empty { padding-block: 56px; border-top: 1px solid var(--color-line); color: var(--color-muted); }
+.portfolio-empty .text-link { margin-top: 24px; }
+.work-pagination { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 32px; margin-top: 64px; }
+.work-pagination a { display: inline-flex; align-items: center; min-height: 44px; border-bottom: 1px solid var(--color-line); }
+@media (max-width: 1000px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .work-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; } .portfolio-heading { align-items: start; flex-direction: column; margin-bottom: 32px; } }
+
+.work-card__preview { pointer-events: none; }
+.work-card__open { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; border-radius: 0; }
+.work-card__open:focus-visible { outline: 2px solid var(--color-text); outline-offset: 6px; }
+.work-card__hint { position: absolute; bottom: 16px; right: 16px; padding: 7px 12px; color: #fff; background: rgb(0 0 0 / 65%); font-size: 12px; pointer-events: none; }
+body.work-dialog-open { overflow: hidden; }
+.work-dialog { width: min(960px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid #555; background: #191919; color: #f3f2ee; overscroll-behavior: contain; }
+.work-dialog::backdrop { background: rgb(0 0 0 / 85%); }
+.work-dialog__inner { padding: clamp(18px, 4vw, 36px); }
+.work-dialog__header { display: flex; align-items: start; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.work-dialog__header h2 { font-size: clamp(20px, 3vw, 32px); margin-top: 8px; overflow-wrap: anywhere; }
+.work-dialog__close, .work-dialog__play { flex-shrink: 0; min-height: 44px; padding: 8px 14px; border: 1px solid #777; background: transparent; color: inherit; }
+.work-dialog__video { width: 100%; height: min(60dvh, 640px); background: #000; object-fit: contain; }
+.work-dialog__play { margin-top: 16px; }
+.work-dialog__status { margin-top: 12px; color: #ccc; font-size: 14px; }
+.work-dialog__footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; font-size: 12px; }
+.work-dialog__instagram { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 5px; }
+
+/* 페이지 나누기: 다른 페이지의 카드는 숨깁니다. */
+.work-card[hidden] {
+    display: none !important;
+}

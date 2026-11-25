@@ -1,0 +1,13 @@
+{
+  "base_url": "https://www.shift-ers.com",
+  "custom_domain": "www.shift-ers.com",
+  "naver_site_verification": "948bc1d15c967c1ef600aac626511c96ba58f5be",
+  "description": "쉬프터즈 — 브랜드 빌딩과 콘텐츠 크리에이티브 파트너",
+  "email": "hello@shift-ers.com",
+  "og_image": "image/og-image.jpg",
+  "same_as": ["https://www.instagram.com/ssshifters/"],
+  "instagram": {
+    "only_reels": true,
+    "title_max_length": 200
+  }
+}
