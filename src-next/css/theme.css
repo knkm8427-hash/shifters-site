@@ -1883,3 +1883,16 @@ body.page-about::after {
 }
 .page-about .about-service:first-child { border-top: 0; }
 .page-about .about-service:first-child > summary { padding-top: 0; }
+
+/* ABOUT — TV 사진 작게, 문장은 4줄 가운데 정렬 (레퍼런스: 작은 사진 + 아래 짧은 문단) */
+.page-about .arc-tv { width: min(440px, 72vw); max-width: none; margin-inline: auto; }
+.about-page .arc-pinned .about-copy.arc-pinned__ko {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--color-text);
+  font-weight: 500;
+  line-height: 1.75;
+}
+@media (max-width: 600px) {
+  .about-page .arc-pinned .about-copy.arc-pinned__ko { text-align: center; margin-top: 28px; font-size: 13px; }
+}
