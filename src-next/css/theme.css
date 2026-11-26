@@ -2012,3 +2012,4 @@ body.page-contact::after { opacity: 0.06; }
 .page-contact .contact-director p { text-wrap: pretty; }
 .page-contact .contact-labels { margin-bottom: 40px; }
 .page-contact .contact-director { max-width: min(440px, 80vw); }
+.page-contact .contact-director p + p:not(.contact-director__greeting + p) { margin-top: 0; }
