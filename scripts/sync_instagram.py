@@ -110,6 +110,7 @@ def main() -> int:
                 "permalink": m["permalink"],
                 "date": ts.strftime("%Y.%m.%d"),
                 "timestamp": ts.isoformat(),
+                "caption": (m.get("caption") or "").strip(),
                 "has_video": bool(video),
                 "video_url": video,
                 "poster": f"media/posters/{code}.jpg",
