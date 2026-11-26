@@ -15,7 +15,7 @@
     <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-contact">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -42,21 +42,13 @@
     <main class="site-main contact-page" id="main-content" tabindex="-1">
         <section class="contact-simple" aria-labelledby="contact-title">
             <div class="container">
-                <p class="contact-label">CONTACT SHIFTERS</p>
-
-                <h1 class="contact-title" id="contact-title">
-                    PRESS THE<br>
-                    <button class="contact-shift-key" type="button" aria-label="Shift 키 눌러보기"><img src="./image/shiftkey-transparent.webp" alt="" width="400" height="400"></button> <span class="arc-circled">KEY</span>
-                </h1>
+                <h1 class="visually-hidden" id="contact-title">CONTACT — 쉬프터즈 문의</h1>
+                <figure class="contact-labels">
+                    <img src="./image/contact-labels.webp" alt="벽에 붙은 라벨 세 장: shift+ers, press the shift key, 바코드 아래 KIM NAKYEONG" width="800" height="1066">
+                </figure>
 
                 <div class="contact-action">
                     <div class="contact-action__intro">
-                        <h2 class="contact-heading">
-                            다음 변화를 함께 만들어볼까요?
-                        </h2>
-                        <p class="contact-copy">
-                            브랜드의 고민이나 함께하고 싶은 프로젝트를 들려주세요.
-                        </p>
                         <div class="contact-director" aria-label="대표 디렉터 소개">
                             <p class="contact-director__greeting">안녕하세요, 쉬프터즈 대표 디렉터 김나경입니다.</p>
                             <p>저는 영화 연출, 영상시나리오 전공으로 글을 쓰고<br>
@@ -88,6 +80,10 @@
                             <a class="contact-social__link" href="https://www.instagram.com/ssshifters/"
                                target="_blank" rel="noopener noreferrer">
                                 <span>인스타그램 <small>@ssshifters</small></span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                            <a class="contact-social__link" href="mailto:hello@shift-ers.com">
+                                <span>메일 문의 <small>hello@shift-ers.com</small></span>
                                 <span aria-hidden="true">↗</span>
                             </a>
                         </div>

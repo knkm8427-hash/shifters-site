@@ -1919,3 +1919,24 @@ body.page-about::after {
 .page-about .arc-pinned { padding-bottom: clamp(80px, 8vw, 120px); }
 .page-about .about-services { padding-top: clamp(200px, 22vw, 320px); }
 @media (max-width: 600px) { .page-about .about-services { padding-top: 160px; } }
+
+/* ========================================================
+   CONTACT — 메인 배경, 라벨 사진 중앙 배치
+   ======================================================== */
+body.page-contact {
+  --arc-paper: #fbfbfa;
+  --color-background: #fbfbfa;
+  background: #fbfbfa;
+}
+.page-contact .contact-labels {
+  margin: clamp(40px, 6vw, 88px) auto clamp(80px, 9vw, 140px);
+  width: min(360px, 70vw);
+}
+.page-contact .contact-labels img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+}
+body.page-contact::after { opacity: 0.06; }
