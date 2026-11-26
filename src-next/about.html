@@ -17,7 +17,7 @@
     <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-about">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -46,69 +46,18 @@
     </header>
 
     <main class="site-main about-page" id="main-content" tabindex="-1">
-        <!-- 소개: 아래 본문은 교체 가능한 임시 문구입니다. -->
-        <section class="about-intro" aria-labelledby="about-title">
-            <div class="container">
-                <div class="about-meta">
-                    <span>ABOUT SHIFTERS</span>
-                </div>
+        <h1 class="visually-hidden" id="about-title">ABOUT — 쉬프터즈 SHIFTERS</h1>
 
-                <h1 class="about-intro__title" id="about-title">
-                    SHIFT NEVER<br>
-                    WORKS <span>ALONE.</span>
-                </h1>
-
-                <div class="about-intro__bottom">
-                    <p>좋은 변화는<br>함께 시작됩니다.</p>
-
-                    <div>
-                        <p class="about-copy">
-                            브랜드가 가진 가능성을 발견하고,<br>
-                            그 가능성이 사람들에게 닿는 방법을 고민합니다.<br>
-                            쉬프터즈는 당신의 다음 장면을 함께 만드는<br>
-                            브랜드 & 콘텐츠 크리에이티브 파트너입니다.
-                        </p>
-                    </div>
-                </div>
+        <!-- 브랜드 철학: 양쪽 정렬 텍스트 단 + 세로로 긴 흑백 사진 -->
+        <section class="arc-essay" id="philosophy" aria-labelledby="philosophy-title">
+            <div class="arc-essay__text">
+                <h2 id="philosophy-title">혼자서는 없는 변화.<br>함께 만드는 가능성.</h2>
+                <p>SHIFT KEY는 혼자 작동하지 못합니다. 다른 키와 함께 눌러야 비로소 작동하죠.</p>
+                <p>여러분의 &lsquo;키&rsquo;를 SHIFTERS가 함께 눌러 새로운 변화를 만들어냅니다.</p>
             </div>
-        </section>
-
-        <!-- 브랜드 철학 -->
-        <section class="about-philosophy" id="philosophy" aria-labelledby="philosophy-title">
-            <div class="container">
-                <div class="about-meta">
-                    <span>OUR PHILOSOPHY</span>
-                </div>
-
-                <div class="about-philosophy__grid">
-                    <div class="about-key-art" aria-hidden="true">
-                        <!-- <div class="about-key">
-                            <span>⇧</span>
-                            <span>Shift</span>
-                        </div> -->
-                        <div class="about-key about-key--photo"></div>
-                    </div>
-
-                    <div>
-                        <p class="about-eyebrow">A KEY TO WHAT’S NEXT</p>
-
-                        <h2 class="about-heading" id="philosophy-title">
-                            혼자서는 없는 변화.<br>
-                            함께 만드는 가능성.
-                        </h2>
-
-                        <p class="about-copy">
-                            <span>SHIFT KEY는 혼자 작동하지 못합니다.</span><br>
-                            다른 키와 함께 눌러야 비로소 작동하죠.
-                        </p>
-
-                        <p class="about-copy">
-                            여러분의 '키'를 SHIFTERS가 함께 눌러<br>
-                            새로운 변화를 만들어냅니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <figure class="arc-essay__photo">
+                <img src="./image/shifters-keys-tall.webp" alt="SHIFT 키캡과 검은 T 키가 놓인 키보드 키캡 사진" width="600" height="1200" loading="lazy">
+            </figure>
         </section>
 
         <!-- 서비스: 제목을 누르면 설명이 펼쳐집니다. -->
