@@ -131,6 +131,10 @@ def render_pages(src: Path, out: Path, works: list, preview: bool) -> None:
         if page == "index.html":
             text = text.replace("<!--HOME_WORKS-->", "".join(home_thumb(i, total - n) for n, i in enumerate(works[:4])))
         text = text.replace("<!--WORKS_COUNT-->", str(total))
+        # 수정한 디자인이 브라우저 캐시 때문에 늦게 보이지 않도록 버전 표시를 붙입니다.
+        import re as _re
+        stamp = dt.datetime.now().strftime("%Y%m%d%H%M")
+        text = _re.sub(r'((?:href|src)="\./(?:css|js)/[^"?]+\.(?:css|js))"', lambda m: f'{m.group(1)}?v={stamp}"', text)
         if preview:
             # 디자인 확인용: 검색엔진 수집 안 함, 하위 경로에서도 열리도록 상대 링크
             text = text.replace("</title>", '</title>\n    <meta name="robots" content="noindex,nofollow">', 1)
