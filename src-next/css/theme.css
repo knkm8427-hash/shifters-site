@@ -1914,3 +1914,8 @@ body.page-about::after {
   .page-about .desc-short { display: inline; white-space: nowrap; }
   .page-about .about-service__name > span:last-child { font-size: 12px; }
 }
+
+/* ABOUT — 메인 사진·문장과 WHAT WE DO 사이 간격 한 번 더 확대 */
+.page-about .arc-pinned { padding-bottom: clamp(80px, 8vw, 120px); }
+.page-about .about-services { padding-top: clamp(200px, 22vw, 320px); }
+@media (max-width: 600px) { .page-about .about-services { padding-top: 160px; } }
