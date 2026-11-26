@@ -1665,3 +1665,80 @@ body.page-about::after {
 @media (max-width: 600px) {
   .arc-essay__text { text-align: left; }
 }
+
+/* ========================================================
+   ABOUT — 10차 수정: 연파랑 형광펜 띠 + 파란 핀
+   ======================================================== */
+
+.arc-pinned {
+  display: grid;
+  place-items: center;
+  padding: clamp(100px, 14vw, 200px) var(--arc-gutter);
+}
+
+.arc-pinned__note {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  font-size: clamp(17px, 1.9vw, 25px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #14171c;
+}
+
+.arc-pinned__line {
+  position: relative;
+  margin: 0;
+  padding: 0.3em 0.45em 0.32em;
+  background: rgb(160 186 216 / 92%);
+  white-space: nowrap;
+}
+
+.arc-pinned__line strong {
+  font-weight: 800;
+}
+
+/* 띠마다 시작 위치·각도를 조금씩 어긋나게 */
+.arc-pinned__line--1 { margin-left: 1.6em; transform: rotate(0.6deg); }
+.arc-pinned__line--2 { margin-left: 0.2em; margin-top: -0.05em; transform: rotate(-0.4deg); }
+.arc-pinned__line--3 { margin-left: 0.8em; margin-top: -0.04em; transform: rotate(0.3deg); }
+.arc-pinned__line--4 { margin-left: 2.4em; margin-top: -0.05em; transform: rotate(-0.5deg); }
+.arc-pinned__line--5 { margin-left: 0;     margin-top: -0.04em; transform: rotate(0.4deg); }
+
+.arc-pinned__pin {
+  position: absolute;
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 50%;
+  background: #1c6be0;
+  box-shadow: 0 0.1em 0.25em rgb(0 0 0 / 28%), inset -0.12em -0.14em 0.2em rgb(0 0 0 / 18%);
+  z-index: 2;
+}
+
+.arc-pinned__pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 0.9em;
+  margin-left: -1px;
+  background: #1c6be0;
+}
+
+.arc-pinned__pin--start {
+  left: 1.1em;
+  top: -0.85em;
+}
+
+.arc-pinned__pin--start::after { top: 0.8em; }
+
+.arc-pinned__pin--end {
+  right: -0.85em;
+  top: 0.15em;
+}
+
+.arc-pinned__pin--end::after { top: 0.8em; }
+
+@media (max-width: 600px) {
+  .arc-pinned__note { font-size: clamp(13px, 4vw, 16px); }
+}
