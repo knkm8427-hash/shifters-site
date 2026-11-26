@@ -1581,7 +1581,7 @@ body.page-works::after {
   .work-dialog__poster { height: min(56dvh, 520px); }
 }
 
-/* WORKS: 상단 제목 영역 없이 바로 작업 목록 */
-.page-works .portfolio-section {
-  padding-top: clamp(24px, 4vw, 56px);
+/* WORKS: 카드 아래 캡션 제목은 숨기고 번호·분류·날짜만 */
+.page-works .work-card__title {
+  display: none;
 }
