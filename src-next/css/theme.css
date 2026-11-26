@@ -1808,3 +1808,34 @@ body.page-about::after {
 .about-services .about-heading {
   font-size: clamp(22px, 2.6vw, 34px);
 }
+
+/* ========================================================
+   ABOUT — 12차 수정
+   ======================================================== */
+
+/* WHAT WE DO와 PROCESS 사이: 실선 없이 넓은 여백 */
+.about-page .about-approach {
+  border-top: 0;
+  margin-top: clamp(80px, 10vw, 160px);
+}
+
+/* TV 아래 한국어: 서비스 설명과 같은 크기 */
+.arc-pinned__ko {
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* 서비스 목록 위 작은 회색 캡션 */
+.about-services .about-section-heading .about-heading {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: var(--color-muted);
+}
+
+@media (max-width: 760px) {
+  .arc-pinned__ko,
+  .about-services .about-section-heading .about-heading { font-size: 12px; }
+}
+.page-about .about-service:last-child { border-bottom: 0; }
