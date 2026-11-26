@@ -1896,3 +1896,7 @@ body.page-about::after {
 @media (max-width: 600px) {
   .about-page .arc-pinned .about-copy.arc-pinned__ko { text-align: center; margin-top: 28px; font-size: 13px; }
 }
+
+/* ABOUT — 메인 사진·문장과 WHAT WE DO 사이 간격 확대 */
+.page-about .about-services { padding-top: clamp(120px, 14vw, 220px); }
+@media (max-width: 600px) { .page-about .about-services { padding-top: 96px; } }
