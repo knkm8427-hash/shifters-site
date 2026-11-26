@@ -1839,3 +1839,12 @@ body.page-about::after {
   .about-services .about-section-heading .about-heading { font-size: 12px; }
 }
 .page-about .about-service:last-child { border-bottom: 0; }
+
+/* ABOUT — 한국어 3줄을 캡션과 같은 크기로, 캡션은 WHAT WE DO 바로 아래 */
+.about-page .arc-pinned .about-copy.arc-pinned__ko { font-size: 14px; line-height: 1.85; }
+.page-about .about-services .about-meta { margin-bottom: 10px; }
+.page-about .about-services .about-section-heading { margin-top: 0; margin-bottom: 48px; }
+@media (max-width: 760px) {
+  .about-page .arc-pinned .about-copy.arc-pinned__ko { font-size: 12px; }
+  .page-about .about-services .about-section-heading { margin-bottom: 36px; }
+}
