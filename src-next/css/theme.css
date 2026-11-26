@@ -1849,3 +1849,37 @@ body.page-about::after {
   .page-about .about-services .about-section-heading { margin-bottom: 36px; }
 }
 
+
+/* ABOUT — 제목 옆 작은 회색 문장 (WHAT WE DO / PROCESS 통일) */
+.about-page .about-meta--row {
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-bottom: 40px !important;
+}
+.about-page .about-meta--row .about-meta__note {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-muted);
+  text-align: left;
+}
+/* PROCESS 바로 아래(첫 줄) 실선 삭제 */
+.about-process__item:nth-child(1),
+.about-process__item:nth-child(5),
+.about-process__item:nth-child(9),
+.about-process__item:nth-child(12) { border-top: 0 !important; padding-top: 0 !important; }
+@media (max-width: 1100px) {
+  .about-process__item:nth-child(n) { border-top: 1px solid var(--arc-line) !important; padding-top: 20px !important; }
+  .about-process__item:nth-child(1), .about-process__item:nth-child(2) { border-top: 0 !important; padding-top: 0 !important; }
+}
+@media (max-width: 600px) {
+  .about-process__item:nth-child(2) { border-top: 1px solid var(--arc-line) !important; padding-top: 18px !important; }
+  .about-page .about-meta--row .about-meta__note { font-size: 12px; }
+}
+.page-about .about-service:first-child { border-top: 0; }
+.page-about .about-service:first-child > summary { padding-top: 0; }
