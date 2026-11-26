@@ -9,12 +9,14 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/portfolio.css">
+    <link rel="stylesheet" href="./css/theme.css">
     <script src="./js/common.js" defer></script>
   <script src="./js/works-pagination.js" defer></script>
   <script src="./js/portfolio.js" defer></script>
+    <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-works">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -40,15 +42,14 @@
 
     <main class="site-main" id="main-content" tabindex="-1">
       <section class="portfolio-section container" aria-labelledby="works-title">
-        <div class="portfolio-heading">
-          <div><p class="section-label">BRAND &amp; CONTENT</p><h1 class="section-title" id="works-title">WORKS</h1></div>
-          <p class="portfolio-count"><!--WORKS_COUNT--> PROJECTS</p>
-        </div>
+        <h1 class="visually-hidden" id="works-title">WORKS — 쉬프터즈 SHIFTERS 포트폴리오</h1>
         
+        <p class="works-label" aria-hidden="true">WORKS 2025&mdash;2026</p>
         <div class="work-grid">
 <!--WORKS_GRID-->
         </div>
         <nav class="work-pagination" aria-label="작업 목록 페이지"></nav>
+        <p class="works-label works-label--end" aria-hidden="true">SHIFTERS</p>
       </section>
     </main>
 
@@ -62,15 +63,24 @@
   <div class="work-dialog__inner">
     <header class="work-dialog__header">
       <div><p class="section-label">SHIFTERS / FILM</p><h2 id="work-dialog-title"></h2></div>
-      <button type="button" class="work-dialog__close" aria-label="영상 모달 닫기" autofocus>닫기 ×</button>
+      <button type="button" class="work-dialog__close" aria-label="영상 모달 닫기" autofocus>Close &times;</button>
     </header>
-    <video class="work-dialog__video" controls playsinline preload="none" aria-label="전체 작업 영상"></video>
-    <button type="button" class="work-dialog__play" hidden>전체 영상 재생 ▶</button>
-    <p class="work-dialog__status" role="status" aria-live="polite"></p>
-    <footer class="work-dialog__footer">
-      <span class="work-dialog__date"></span>
-      <a class="work-dialog__instagram" target="_blank" rel="noopener noreferrer" hidden>Instagram에서 보기 ↗</a>
-    </footer>
+    <div class="work-dialog__body">
+      <div class="work-dialog__media">
+        <img class="work-dialog__poster" alt="" hidden>
+        <video class="work-dialog__video" controls playsinline muted preload="auto" aria-label="전체 작업 영상"></video>
+        <button type="button" class="work-dialog__sound" hidden>Sound on</button>
+        <button type="button" class="work-dialog__play" hidden>Play &#9654;</button>
+        <p class="work-dialog__status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="work-dialog__text">
+        <p class="work-dialog__caption"></p>
+        <footer class="work-dialog__footer">
+          <span class="work-dialog__date"></span>
+          <a class="work-dialog__instagram" target="_blank" rel="noopener noreferrer" hidden>Instagram &#8599;</a>
+        </footer>
+      </div>
+    </div>
   </div>
 </dialog>
   <!-- 변경: CONTACT와 같은 고정 TOP 버튼으로 페이지 맨 위로 이동합니다. -->

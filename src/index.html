@@ -10,14 +10,14 @@
 
   <!-- 공통 스타일 다음에 페이지 스타일을 연결합니다. -->
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/mainpage.css">
+  <link rel="stylesheet" href="./css/theme.css">
 
   <!-- HTML이 준비된 뒤 실행합니다. -->
   <script src="./js/common.js" defer></script>
-  <script src="./js/mainpage.js" defer></script>
+  <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-home">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
   <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -45,68 +45,26 @@
     </div>
   </header>
 
-  <!-- 첫 화면 전용 콘텐츠 -->
-  <main class="site-main home-page" id="main-content" tabindex="-1">
-    <h1 class="home-page__title">
-      SHIFTERS — Brand & Content Creative Partner
-    </h1>
+  <main class="site-main home-page arc-home" id="main-content" tabindex="-1">
+    <h1 class="visually-hidden">쉬프터즈 SHIFTERS — 브랜드·콘텐츠 크리에이티브 파트너</h1>
 
-    <div class="stage">
-      <svg class="hero-art" role="img" aria-labelledby="hero-title hero-description" xmlns="http://www.w3.org/2000/svg"
-        width="1440" height="900" viewBox="0 0 1440 900">
-        <title id="hero-title">SHIFTERS</title>
-        <desc id="hero-description">
-          PRESS THE SHIFT KEY — CREATIVE PARTNER
-        </desc>
+    <!-- 첫 화면: 키캡 사진 하나 + 바로 아래 PRESS THE SHIFT KEY -->
+    <section class="arc-hero" aria-label="SHIFTERS 소개">
 
-        <defs>
-          <clipPath id="logo-reveal">
-            <rect id="logo-mask" x="0" y="0" width="1440" height="900" />
-          </clipPath>
+      <div class="arc-hero__center">
+        <button class="arc-key arc-keyphoto" type="button" aria-label="SHIFT+ERS 키캡 눌러보기">
+          <img src="./image/shifters-keys.webp" alt="SHIFT+ERS가 한 글자씩 새겨진 키보드 키캡들" width="1200" height="1200">
+        </button>
+        <div class="arc-credit arc-typewriter" aria-label="Press the shift key. Creative partner.">
+          <p class="arc-credit__title" data-type="Press the shift key" aria-hidden="true"></p>
+          <p class="arc-credit__line" data-type="Creative partner" aria-hidden="true"></p>
+        </div>
 
-          <clipPath id="prompt-reveal">
-            <rect id="prompt-mask" x="0" y="0" width="1440" height="900" />
-          </clipPath>
-
-          <clipPath id="hero-crop">
-            <rect width="1440" height="900" />
-          </clipPath>
-        </defs>
-
-        <!-- 기존 차콜 배경 -->
-        <g id="Charcoal-background" clip-path="url(#hero-crop)">
-          <rect width="1440" height="900" fill="#242424" />
-
-          <image id="Original-brand-charcoal-texture" x="-280" y="-130" width="2000" height="3262.032"
-            preserveAspectRatio="none" href="./image/shifters_logo.webp" />
-
-          <rect width="1440" height="900" fill="#000" opacity="0.20" />
-        </g>
-
-        <!-- 기존 SVG 메뉴는 공통 HTML 헤더로 옮겼습니다. -->
-
-        <g id="Hero-logo">
-          <text id="SHIFTERS-editable-source" clip-path="url(#logo-reveal)" x="720" y="440" fill="#fff"
-            font-family="Telegraf, Arial Black, Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="6"
-            text-anchor="middle">SHIFTERS</text>
-        </g>
-
-        <g id="Shift-key-prompt">
-          <text id="PRESS-THE-SHIFT-KEY" clip-path="url(#prompt-reveal)" x="720" y="499" fill="#fff"
-            font-family="Telegraf, Arial, sans-serif" font-size="18" letter-spacing="6" text-anchor="middle">PRESS THE
-            SHIFT KEY</text>
-        </g>
-
-        <text id="Brand-description" x="720" y="520" fill="#fff" font-family="Telegraf, Arial, sans-serif"
-          font-size="14" letter-spacing="4" text-anchor="middle">CREATIVE PARTNER</text>
-
-        <rect id="animated-caret" x="0" y="0" width="2" height="20" fill="#fff" aria-hidden="true" />
-      </svg>
-
-    </div>
-    <section class="home-work-cta" aria-label="작업물 보기">
-      <a class="text-link" href="/works">VIEW WORK <span aria-hidden="true">↗</span></a>
+        <a class="arc-more arc-more--hero" href="/works">View all works <span aria-hidden="true">&#8599;</span></a>
+      </div>
     </section>
+
+
   </main>
 
   <!-- 공통 푸터 -->

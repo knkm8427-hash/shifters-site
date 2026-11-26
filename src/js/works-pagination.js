@@ -27,9 +27,9 @@
   };
 
   nav.textContent = "";
-  if (page > 0) nav.append(link(page - 1, "prev", "← 이전"));
+  if (page > 0) nav.append(link(page - 1, "prev", "← PREV"));
   const span = document.createElement("span");
   span.textContent = `${page + 1} / ${total}`;
   nav.append(span);
-  if (page < total - 1) nav.append(link(page + 1, "next", "다음 →"));
+  if (page < total - 1) nav.append(link(page + 1, "next", "NEXT →"));
 })();

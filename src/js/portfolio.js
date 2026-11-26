@@ -7,6 +7,9 @@
   const status = dialog.querySelector('.work-dialog__status');
   const playButton = dialog.querySelector('.work-dialog__play');
   const instagram = dialog.querySelector('.work-dialog__instagram');
+  const caption = dialog.querySelector('.work-dialog__caption');
+  const sound = dialog.querySelector('.work-dialog__sound');
+  const posterImg = dialog.querySelector('.work-dialog__poster');
   const previews = [...document.querySelectorAll('.work-card__preview')];
   const visible = new Set();
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -57,11 +60,12 @@
     player.play().then(() => {
       if (currentSession !== session || !dialog.open) return;
       playButton.hidden = true;
+      if (sound) sound.hidden = !player.muted || (player.currentSrc || player.src).includes('/media/videos/');
       status.textContent = '';
     }).catch(() => {
       if (currentSession !== session || !dialog.open) return;
       playButton.hidden = false;
-      status.textContent = '자동 재생이 제한되었습니다. 재생 버튼을 눌러 주세요.';
+      status.textContent = '';
     });
   }
 
@@ -72,6 +76,19 @@
       session++;
       title.textContent = button.dataset.title || '작업 영상';
       dialog.querySelector('.work-dialog__date').textContent = button.dataset.date || '';
+      if (caption) {
+        // 캡션 첫 줄이 제목과 같으면 중복이라 뺍니다.
+        let text = (button.dataset.caption || '').trim();
+        const first = text.split('\n')[0].trim();
+        if (first && first === (button.dataset.title || '').trim()) text = text.slice(text.indexOf('\n') + 1).trim();
+        caption.textContent = text;
+      }
+      if (posterImg) {
+        posterImg.hidden = !!button.dataset.video || !button.dataset.poster;
+        if (button.dataset.poster) posterImg.src = button.dataset.poster;
+        posterImg.alt = button.dataset.title || '';
+      }
+      if (sound) sound.hidden = true;
       status.textContent = '';
       playButton.hidden = true;
       instagram.hidden = !button.dataset.permalink;
@@ -84,17 +101,24 @@
       document.body.classList.add('work-dialog-open');
       updatePreviews();
       if (button.dataset.video) {
-        player.muted = false;
+        // 브라우저는 소리 있는 자동 재생을 막기 때문에, 음소거로 바로 재생하고 '소리 켜기'를 제공합니다.
+        player.muted = true;
         player.src = button.dataset.video;
         player.load(); // A fresh source starts the full video from the beginning.
         attemptPlayback();
       } else {
-        status.textContent = '이 영상은 Instagram에서 시청할 수 있습니다. 아래 링크를 눌러 주세요.';
+        status.textContent = '영상은 Instagram에서 볼 수 있어요.';
       }
     });
   });
 
   playButton.addEventListener('click', attemptPlayback);
+  sound?.addEventListener('click', () => {
+    player.muted = false;
+    sound.hidden = true;
+    player.play().catch(() => {});
+  });
+  player.addEventListener('volumechange', () => { if (sound) sound.hidden = !player.muted || (player.currentSrc || player.src).includes('/media/videos/'); });
   player.addEventListener('error', () => {
     if (!dialog.open || !player.getAttribute('src')) return;
     status.textContent = '영상을 불러오지 못했습니다. Instagram 원문을 확인해 주세요.';

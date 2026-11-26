@@ -10,12 +10,14 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/theme.css">
 
     <script src="./js/common.js" defer></script>
     <script src="./js/about.js" defer></script>
+    <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-about">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -44,88 +46,28 @@
     </header>
 
     <main class="site-main about-page" id="main-content" tabindex="-1">
-        <!-- 소개: 아래 본문은 교체 가능한 임시 문구입니다. -->
-        <section class="about-intro" aria-labelledby="about-title">
-            <div class="container">
-                <div class="about-meta">
-                    <span>ABOUT SHIFTERS</span>
-                </div>
+        <h1 class="visually-hidden" id="about-title">ABOUT — 쉬프터즈 SHIFTERS</h1>
 
-                <h1 class="about-intro__title" id="about-title">
-                    SHIFT NEVER<br>
-                    WORKS <span>ALONE.</span>
-                </h1>
-
-                <div class="about-intro__bottom">
-                    <p>좋은 변화는<br>함께 시작됩니다.</p>
-
-                    <div>
-                        <p class="about-copy">
-                            브랜드가 가진 가능성을 발견하고,<br>
-                            그 가능성이 사람들에게 닿는 방법을 고민합니다.<br>
-                            쉬프터즈는 당신의 다음 장면을 함께 만드는<br>
-                            브랜드 & 콘텐츠 크리에이티브 파트너입니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 브랜드 철학 -->
-        <section class="about-philosophy" id="philosophy" aria-labelledby="philosophy-title">
-            <div class="container">
-                <div class="about-meta">
-                    <span>OUR PHILOSOPHY</span>
-                </div>
-
-                <div class="about-philosophy__grid">
-                    <div class="about-key-art" aria-hidden="true">
-                        <!-- <div class="about-key">
-                            <span>⇧</span>
-                            <span>Shift</span>
-                        </div> -->
-                        <div class="about-key about-key--photo"></div>
-                    </div>
-
-                    <div>
-                        <p class="about-eyebrow">A KEY TO WHAT’S NEXT</p>
-
-                        <h2 class="about-heading" id="philosophy-title">
-                            혼자서는 없는 변화.<br>
-                            함께 만드는 가능성.
-                        </h2>
-
-                        <p class="about-copy">
-                            <span>SHIFT KEY는 혼자 작동하지 못합니다.</span>><br>
-                            다른 키와 함께 눌러야 비로소 작동하죠.
-                        </p>
-
-                        <p class="about-copy">
-                            여러분의 '키'를 SHIFTERS가 함께 눌러<br>
-                            새로운 변화를 만들어냅니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <!-- 브랜드 철학: 영어 형광펜 띠 + 핀, 아래 한국어 -->
+        <section class="arc-pinned" id="philosophy" aria-labelledby="philosophy-title">
+            <h2 class="visually-hidden" id="philosophy-title">No change happens alone. Possibility, made together.</h2>
+            <figure class="arc-tv">
+                <img src="./image/tv-no-change.webp" alt="여섯 대의 브라운관 TV 화면에 NO CHANGE HAPPENS ALONE. 문구가 나뉘어 떠 있는 사진" width="1600" height="1000">
+            </figure>
+            <p class="about-copy arc-pinned__ko" lang="ko">
+                SHIFT KEY는 혼자 작동하지 못합니다.<br>
+                다른 키와 함께 눌러야 비로소 작동하죠.<br>
+                여러분의 &lsquo;키&rsquo;를 SHIFTERS가 함께 눌러<br>
+                새로운 변화를 만들어냅니다.
+            </p>
         </section>
 
         <!-- 서비스: 제목을 누르면 설명이 펼쳐집니다. -->
         <section class="about-services" id="whatwedo" aria-labelledby="services-title">
             <div class="container">
-                <div class="about-meta">
+                <div class="about-meta about-meta--row">
                     <span>WHAT WE DO</span>
-                </div>
-
-                <div class="about-section-heading">
-                    <h2 class="about-heading" id="services-title">
-                        브랜드를 만드는<br>
-                        모든 과정을 한 팀에서.
-                    </h2>
-
-                    <p class="about-copy">
-                        브랜드의 모든 요소가 한 흐름으로 연결되어야 비로소 브랜드다움이 만들어집니다.<br>
-                        쉬프터즈는 언어, 디자인, 공간, 콘텐츠가 하나의 방향 아래 유기적으로 설계된 브랜드를 만듭니다.
-                    </p>
+                    <h2 class="about-meta__note" id="services-title">브랜드를 만드는 모든 과정을 한 팀에서.</h2>
                 </div>
 
                 <div class="about-service-list">
@@ -135,7 +77,7 @@
 
                             <span class="about-service__name">
                                 <span>Brand Building</span>
-                                <span>브랜드의 본질을 발견하고, 전략을 설계하며, 감각적으로 표현하기까지 —</span>
+                                <span><span class="desc-full">브랜드의 본질을 발견하고, 전략을 설계하며, 감각적으로 표현하기까지 —</span><span class="desc-short" aria-hidden="true">브랜드의 본질부터 전략, 표현까지 —</span></span>
                             </span>
 
                             <span class="about-service__icon" aria-hidden="true"></span>
@@ -156,7 +98,7 @@
 
                             <span class="about-service__name">
                                 <span>Content Creative</span>
-                                <span>콘텐츠 기획부터 사진·영상 촬영, 디자인과 편집까지 —</span>
+                                <span><span class="desc-full">콘텐츠 기획부터 사진·영상 촬영, 디자인과 편집까지 —</span><span class="desc-short" aria-hidden="true">콘텐츠 기획부터 촬영·편집까지 —</span></span>
                             </span>
 
                             <span class="about-service__icon" aria-hidden="true"></span>
@@ -177,7 +119,7 @@
 
                             <span class="about-service__name">
                                 <span>Brand Experience</span>
-                                <span>인플루언서 시딩부터 팝업과 전시 기획, 공간 연출까지 —</span>
+                                <span><span class="desc-full">인플루언서 시딩부터 팝업과 전시 기획, 공간 연출까지 —</span><span class="desc-short" aria-hidden="true">시딩부터 팝업·전시 기획까지 —</span></span>
                             </span>
 
                             <span class="about-service__icon" aria-hidden="true"></span>
@@ -198,12 +140,9 @@
         <!-- 작업 프로세스 -->
         <section class="about-approach about-process" id="howwework" aria-labelledby="approach-title">
             <div class="container">
-                <div class="about-meta">
+                <div class="about-meta about-meta--row">
                     <span>PROCESS</span>
-                </div>
-
-                <div class="about-section-heading">
-                    <h2 class="about-heading" id="approach-title">작업 프로세스</h2>
+                    <h2 class="about-meta__note" id="approach-title">첫 설문부터 최종 공유까지, 14단계를 함께.</h2>
                 </div>
 
                 <ol class="about-process__list" role="list">
@@ -322,23 +261,7 @@
             </div>
         </section>
 
-        <!-- 문의 페이지가 없어도 이용할 수 있는 이메일 링크 -->
-        <section class="about-contact" aria-labelledby="contact-title">
-            <div class="container about-contact__inner">
-                <div>
-                    <p class="about-eyebrow">YOUR NEXT SHIFT</p>
-                    <h2 class="about-heading" id="contact-title">
-                        다음 이야기를<br>함께 만들어볼까요?
-                    </h2>
-                </div>
 
-                <a class="about-contact__link" href="/contact">
-                    프로젝트 이야기하기
-                    <span aria-hidden="true">↗</span>
-                </a>
-            </div>
-
-        </section>
         <!-- 공통 앵커 스크롤로 본문 시작이 아닌 페이지 상단 헤더까지 이동합니다. -->
         <div class="container about-top-link">
             <a class="text-link" href="#page-top" aria-label="페이지 맨 위로 이동">

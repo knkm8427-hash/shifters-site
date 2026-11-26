@@ -9,11 +9,13 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/theme.css">
     <script src="./js/common.js" defer></script>
     <script src="./js/contact.js" defer></script>
+    <script src="./js/theme.js" defer></script>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" class="page-contact">
     <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
@@ -40,39 +42,17 @@
     <main class="site-main contact-page" id="main-content" tabindex="-1">
         <section class="contact-simple" aria-labelledby="contact-title">
             <div class="container">
-                <p class="contact-label">CONTACT SHIFTERS</p>
-
-                <h1 class="contact-title" id="contact-title">
-                    PRESS THE<br>
-                    <button class="contact-shift-key" type="button" aria-label="Shift 키 눌러보기"><img src="./image/shiftkey-transparent.webp" alt="" width="400" height="400"></button> KEY
-                </h1>
+                <h1 class="visually-hidden" id="contact-title">CONTACT — 쉬프터즈 문의</h1>
+                <figure class="contact-labels">
+                    <img src="./image/contact-labels-wide.webp" alt="벽에 붙은 라벨 세 장: shift+ers, press the shift key, 바코드 아래 KIM NAKYEONG" width="800" height="500">
+                </figure>
 
                 <div class="contact-action">
                     <div class="contact-action__intro">
-                        <h2 class="contact-heading">
-                            다음 변화를 함께 만들어볼까요?
-                        </h2>
-                        <p class="contact-copy">
-                            브랜드의 고민이나 함께하고 싶은 프로젝트를 들려주세요.
-                        </p>
                         <div class="contact-director" aria-label="대표 디렉터 소개">
                             <p class="contact-director__greeting">안녕하세요, 쉬프터즈 대표 디렉터 김나경입니다.</p>
-                            <p>저는 영화 연출, 영상시나리오 전공으로 글을 쓰고<br>
-                            영상으로 구현하는 작업을 해왔습니다.<br>
-                            그것도 지독하게요.<br>
-                            (단편 23편, 장편 시나리오 2편)</p>
-                            <p>20대 때 몰입했던 이 경험들을 바탕으로 지금은<br>
-                            브랜드가 '왜 존재하는가'에 집중해 브랜드의 정체성을<br>
-                            비주얼적으로 연출하고 있습니다.</p>
-                            <p>저는 '본질'에 대한 집착이 강합니다.<br>
-                            그래서 브랜드의 본질과 핵심 가치를 진정성 있게<br>
-                            드러내는 방향을 중요하게 생각합니다.</p>
-                            <p>또한 브랜드의 스토리가 실제로 구현될 수 있도록<br>
-                            기획부터 제작, 전략까지<br>
-                            전 과정을 디테일하게 설계합니다.</p>
-                            <p>단순 외부 협력자가 아닌,<br>
-                            브랜드 팀의 일원으로서 시작' 완성까지<br>
-                            내 일처럼 함께 만들어 가겠습니다</p>
+                            <p>저는 영화 연출, 영상시나리오 전공으로 글을 쓰고 영상으로 구현하는 작업을 해왔습니다. 그것도 지독하게요. <span style="white-space:nowrap">(단편 23편, 장편 시나리오 2편)</span> 저는 &lsquo;본질&rsquo;에 대한 집착이 강합니다. 그래서 브랜드의 본질과 핵심 가치를 진정성 있게 드러내는 방향을 중요하게 생각합니다. 또한 기획부터 제작, 전략까지 전 과정을 디테일하게 설계합니다.</p>
+                            <p>단순 외부 협력자가 아닌, 브랜드 팀의 일원으로서 내 일처럼 함께 하겠습니다.</p>
                         </div>
                     </div>
 
@@ -80,12 +60,16 @@
                         <div class="contact-social" aria-label="연락 채널">
                             <a class="contact-social__link" href="https://pf.kakao.com/_XxfJFn/chat"
                                target="_blank" rel="noopener noreferrer">
-                                <span>카카오톡 문의하기 <small>쉬프터즈 1:1 상담</small></span>
+                                <span>KAKAOTALK <small>쉬프터즈 1:1 상담</small></span>
                                 <span aria-hidden="true">↗</span>
                             </a>
                             <a class="contact-social__link" href="https://www.instagram.com/ssshifters/"
                                target="_blank" rel="noopener noreferrer">
-                                <span>인스타그램 <small>@ssshifters</small></span>
+                                <span>INSTAGRAM <small>@ssshifters</small></span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                            <a class="contact-social__link" href="mailto:hello@shift-ers.com">
+                                <span>MAIL <small>hello@shift-ers.com</small></span>
                                 <span aria-hidden="true">↗</span>
                             </a>
                         </div>

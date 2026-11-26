@@ -127,7 +127,7 @@ def render_pages(src: Path, out: Path, works: list, preview: bool) -> None:
         p = out / page
         text = p.read_text(encoding="utf-8")
         if page == "works.html":
-            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i, (n + 1) if preview else (total - n), preview) for n, i in enumerate(works)))
+            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i, n + 1, True) for n, i in enumerate(works)))
         if page == "index.html":
             text = text.replace("<!--HOME_WORKS-->", "".join(home_thumb(i, total - n) for n, i in enumerate(works[:4])))
         text = text.replace("<!--WORKS_COUNT-->", str(total))
