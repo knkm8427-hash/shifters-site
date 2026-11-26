@@ -12,6 +12,15 @@
     "only_reels": true,
     "title_max_length": 200,
     "exclude_shortcodes": [
+      "DHpiTl0SxHp",
+      "DI0bTUtJu4j",
+      "DI29YYgt51e",
+      "DQGwOpAEsf0",
+      "DQWSeLokqvL",
+      "DRMPrZrkvS6",
+      "DRjc5K8ksda",
+      "DaCqKEmy8Zf",
+      "Daep6mOSziX",
       "DgJ4EP8hkso"
     ],
     "exclude_if_caption_contains": []
