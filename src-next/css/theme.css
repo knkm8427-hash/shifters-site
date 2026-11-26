@@ -1956,3 +1956,16 @@ body.page-contact::after { opacity: 0.06; }
 @media (max-width: 600px) {
   .page-contact .contact-director p { font-size: 13px; }
 }
+
+/* CONTACT — 채널 이름: ABOUT 서비스명(BRAND BUILDING)과 같은 글꼴·크기 */
+.page-contact .contact-social__link > span:first-child {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.page-contact .contact-social__link small {
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
