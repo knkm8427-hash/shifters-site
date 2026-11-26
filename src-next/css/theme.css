@@ -2004,3 +2004,11 @@ body.page-contact::after { opacity: 0.06; }
 }
 .page-contact .contact-director { max-width: 540px; margin-inline: auto !important; }
 .page-contact .contact-director p { text-wrap: balance; }
+
+/* CONTACT — 사진 밑 실선 삭제, 소개글은 가운데 단 안에서 왼쪽 정렬 */
+.page-contact .contact-action { border-top: 0 !important; padding-top: 0 !important; }
+.page-contact .contact-action__intro,
+.page-contact .contact-director { text-align: left; }
+.page-contact .contact-director p { text-wrap: pretty; }
+.page-contact .contact-labels { margin-bottom: 40px; }
+.page-contact .contact-director { max-width: min(440px, 80vw); }
