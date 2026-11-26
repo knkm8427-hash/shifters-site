@@ -1585,3 +1585,7 @@ body.page-works::after {
 .page-works .work-card__title {
   display: none;
 }
+
+.page-works .portfolio-section {
+  padding-top: clamp(24px, 4vw, 56px);
+}
