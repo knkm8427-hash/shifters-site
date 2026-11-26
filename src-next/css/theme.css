@@ -1757,3 +1757,15 @@ body.page-about::after {
 .hand .arc-pinned__line strong {
   font-weight: 400;
 }
+
+/* 영어 띠 아래 한국어 번역 (WHAT WE DO 설명과 같은 글꼴·크기) */
+.arc-pinned__ko {
+  margin-top: clamp(40px, 5vw, 64px);
+  max-width: none;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .arc-pinned__ko { text-align: left; }
+  .arc-pinned__line { white-space: normal; }
+}
