@@ -35,7 +35,7 @@ def esc(value: str) -> str:
     return html.escape(value or "", quote=True)
 
 
-def card_html(item: dict) -> str:
+def card_html(item: dict, no: int = 0, numbered: bool = False) -> str:
     title = esc(item["title"])
     poster = esc(item.get("poster") or "")
     video = item.get("video_url") if item.get("has_video") else None
@@ -53,13 +53,24 @@ def card_html(item: dict) -> str:
     {media}
     <span class="work-card__hint" aria-hidden="true">전체 영상 보기 ↗</span>
   </div>
-  <div class="work-card__meta"><span>{esc(item.get("category") or "FILM / REEL")}</span><span>{esc(item["date"])}</span></div>
+  <div class="work-card__meta">{f'<span>No.{no:03d}</span>' if numbered else ''}<span>{esc(item.get("category") or "FILM / REEL")}</span><span>{esc(item["date"])}</span></div>
   <h3 class="work-card__title">{title}</h3>
   <button type="button" class="work-card__open" aria-haspopup="dialog" aria-controls="work-dialog"
           aria-label="{title} 전체 영상 보기"
           data-title="{title}"{video_attr} data-poster="{poster}" data-permalink="{esc(item["permalink"])}"
+          data-caption="{esc(item.get("caption") or "")}"
           data-date="{esc(item["date"])}"></button>
 </article>"""
+
+
+def home_thumb(item: dict, no: int) -> str:
+    title = esc(item["title"])
+    poster = esc(item.get("poster") or "")
+    return f"""<a class="arc-thumb" href="/works">
+  <div class="arc-thumb__media"><img src="{poster}" alt="{title}" loading="lazy"></div>
+  <div class="arc-thumb__meta"><span>No.{no:03d}</span><span>{esc(item["date"])}</span></div>
+  <p class="arc-thumb__title">{title}</p>
+</a>"""
 
 
 def seo_head(page: str, text: str) -> str:
@@ -107,29 +118,50 @@ def seo_head(page: str, text: str) -> str:
     return "\n    ".join(tags)
 
 
-def build() -> None:
-    if DIST.exists():
-        shutil.rmtree(DIST)
-    shutil.copytree(SRC, DIST)
-    media = ROOT / "media"
-    if media.exists():
-        shutil.copytree(media, DIST / "media")
+def render_pages(src: Path, out: Path, works: list, preview: bool) -> None:
+    if out.exists():
+        shutil.rmtree(out)
+    shutil.copytree(src, out)
+    total = len(works)
+    for page in PAGES:
+        p = out / page
+        text = p.read_text(encoding="utf-8")
+        if page == "works.html":
+            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i, total - n, preview) for n, i in enumerate(works)))
+        if page == "index.html":
+            text = text.replace("<!--HOME_WORKS-->", "".join(home_thumb(i, total - n) for n, i in enumerate(works[:4])))
+        text = text.replace("<!--WORKS_COUNT-->", str(total))
+        if preview:
+            # 디자인 확인용: 검색엔진 수집 안 함, 하위 경로에서도 열리도록 상대 링크
+            text = text.replace("</title>", '</title>\n    <meta name="robots" content="noindex,nofollow">', 1)
+            for k, v in {"/works": "works.html", "/about": "about.html", "/contact": "contact.html", "/": "index.html"}.items():
+                text = text.replace(f'href="{k}"', f'href="{v}"')
+            text = text.replace('src="media/', 'src="../media/').replace('poster="media/', 'poster="../media/').replace('data-poster="media/', 'data-poster="../media/')
+        else:
+            text = text.replace("</title>", "</title>\n    " + seo_head(page, text), 1)
+        p.write_text(text, encoding="utf-8")
+    if preview:
+        js = out / "js" / "works-pagination.js"
+        if js.exists():
+            t = js.read_text(encoding="utf-8").replace('p === 0 ? "/works" : `/works?page=${p}`', 'p === 0 ? "works.html" : `works.html?page=${p}`')
+            js.write_text(t, encoding="utf-8")
 
+
+def build() -> None:
     works = json.loads(DATA.read_text(encoding="utf-8"))["items"]
     works.sort(key=lambda i: (i["date"], i.get("timestamp") or ""), reverse=True)
 
-    for page in PAGES:
-        p = DIST / page
-        text = p.read_text(encoding="utf-8")
-        if page == "works.html":
-            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i) for i in works))
-            text = text.replace("<!--WORKS_COUNT-->", str(len(works)))
-        text = text.replace("</title>", "</title>\n    " + seo_head(page, text), 1)
-        p.write_text(text, encoding="utf-8")
+    render_pages(SRC, DIST, works, preview=False)
+    media = ROOT / "media"
+    if media.exists():
+        shutil.copytree(media, DIST / "media")
+    nxt = ROOT / "src-next"
+    if nxt.exists():
+        render_pages(nxt, DIST / "preview", works, preview=True)
 
     today = dt.date.today().isoformat()
     (DIST / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8"
+        f"User-agent: *\nAllow: /\nDisallow: /preview/\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8"
     )
     urls = "\n".join(
         f"  <url>\n    <loc>{BASE + ('/' if path == '/' else path)}</loc>\n    <lastmod>{today}</lastmod>\n  </url>"
@@ -143,7 +175,6 @@ def build() -> None:
     )
     if SITE.get("custom_domain"):
         (DIST / "CNAME").write_text(SITE["custom_domain"] + "\n", encoding="utf-8")
-    # GitHub Pages 가 Jekyll 처리를 하지 않도록
     (DIST / ".nojekyll").write_text("", encoding="utf-8")
     print(f"built {len(works)} works -> {DIST}")
 

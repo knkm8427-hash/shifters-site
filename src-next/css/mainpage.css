@@ -1,0 +1,156 @@
+/* 첫 화면 레이아웃 */
+.home-page {
+  display: grid;
+  place-items: center;
+}
+
+/* 화면에는 SVG 로고를 보여주고, 문서 제목은 별도로 제공합니다. */
+.home-page__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.home-page .stage {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  isolation: isolate;
+}
+
+.home-page .hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-page #animated-caret {
+  visibility: hidden;
+}
+
+/* 실제로 클릭할 수 있는 프로젝트 링크 */
+.hero-work-link {
+  position: absolute;
+  top: 71%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 44px;
+  padding: 10px 16px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+.hero-work-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.hero-work-link > span {
+  font-size: 20px;
+}
+
+/* 첫 화면 하단 라벨 */
+.hero-bottom {
+  position: absolute;
+  right: 4.1667%;
+  bottom: 5%;
+  left: 4.1667%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.hero-bottom > span:first-child {
+  flex-shrink: 0;
+}
+
+.hero-bottom__line {
+  flex: 1;
+  height: 1px;
+  background: rgb(255 255 255 / 60%);
+}
+
+/* 홈에서는 히어로 다음에 바로 푸터가 이어집니다. */
+.home-page + .site-footer {
+  margin-top: 0;
+}
+
+/* 모바일에서는 SVG 중앙 부분을 크게 보여줍니다. */
+@media (max-width: 760px) {
+  .home-page .stage {
+    height: 620px;
+    height: clamp(520px, 76svh, 720px);
+    overflow: hidden;
+  }
+
+  .home-page .hero-art {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    max-width: none;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-work-link {
+    top: 73%;
+    font-size: 11px;
+  }
+
+  .hero-bottom {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    gap: 18px;
+    font-size: 9px;
+  }
+}
+/* 히어로 다음에는 작업물 페이지로 이어지는 링크만 표시 */
+.home-work-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(56px, 8vw, 104px) 24px;
+}
+.home-work-cta .text-link {
+  gap: 12px;
+  min-height: 44px;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: #252525;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.home-work-cta .text-link > span { font-size: 1em; }
+.home-work-cta .text-link:hover {
+  background: #252525;
+  color: #fffefa;
+  border-color: #252525;
+}
+.home-work-cta .text-link:focus-visible {
+  outline: 2px solid #252525;
+  outline-offset: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-work-cta .text-link { transition: none; }
+}

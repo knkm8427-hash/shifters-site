@@ -1,0 +1,793 @@
+/* ABOUT 안에서만 적용되는 스타일 */
+.about-page {
+    --about-space: clamp(72px, 9vw, 132px);
+}
+
+.about-page section {
+    scroll-margin-top: 24px;
+}
+
+.about-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.13em;
+}
+
+.about-meta>span:last-child {
+    color: var(--color-muted);
+    text-align: right;
+}
+
+.about-eyebrow {
+    margin-bottom: 24px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+}
+
+.about-heading {
+    font-size: clamp(30px, 3.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.055em;
+}
+
+.about-copy {
+    max-width: 470px;
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+.about-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-block: 72px 64px;
+}
+
+/* 첫 번째 화면 */
+.about-intro {
+    padding-block: 40px var(--about-space);
+}
+
+.about-intro__title {
+    margin-top: clamp(64px, 9vw, 132px);
+    font-size: clamp(44px, 8.2vw, 120px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.065em;
+}
+
+.about-intro__title>span {
+    color: #92928a;
+}
+
+.about-intro__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-line);
+}
+
+.about-intro__bottom>p {
+    font-size: clamp(22px, 2.5vw, 34px);
+    line-height: 1.45;
+    letter-spacing: -0.04em;
+}
+
+/* 모든 섹션 이동 링크에 동일한 글꼴 크기와 여백을 적용합니다. */
+.about-page .text-link {
+    margin-top: 30px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+/* 브랜드 철학 */
+.about-philosophy {
+    padding-block: 36px var(--about-space);
+    /* 공통 종이 질감이 섹션 사이에서 끊기지 않도록 배경을 투명하게 유지합니다. */
+    background: transparent;
+}
+
+.about-philosophy__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.about-philosophy .about-copy {
+    margin-top: 28px;
+}
+
+.about-key-art {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    min-height: 340px;
+    padding: 40px 24px;
+}
+
+.about-key {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 330px);
+    height: 166px;
+    padding: 32px;
+    border: 1px solid #fffefa;
+    border-bottom: 14px solid #c4c3bb;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #fffefa, #e2e1d9);
+    box-shadow:
+        0 30px 28px -20px rgb(30 30 25 / 30%),
+        inset 0 0 0 6px rgb(255 255 255 / 30%);
+    transform: rotate(-9deg);
+    font-size: 38px;
+}
+
+.about-key>span:first-child {
+    font-family: Arial, sans-serif;
+    font-size: 56px;
+}
+
+.about-key-art>p {
+    margin-top: 52px;
+    color: var(--color-muted);
+    font-size: 9px;
+    text-align: center;
+    letter-spacing: 0.12em;
+}
+
+/* 서비스 */
+.about-services,
+.about-approach {
+    padding-block: 36px var(--about-space);
+}
+
+.about-services {
+    padding-top: 48px;
+}
+
+.about-service {
+    border-top: 1px solid var(--color-line);
+}
+
+.about-service:last-child {
+    border-bottom: 1px solid var(--color-line);
+}
+
+.about-service>summary {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 20px;
+    padding-block: 32px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.about-service>summary::-webkit-details-marker {
+    display: none;
+}
+
+.about-service>summary:focus-visible {
+    outline-offset: -2px;
+}
+
+.about-service__number {
+    align-self: start;
+    padding-top: 8px;
+    color: var(--color-muted);
+    font-size: 11px;
+}
+
+.about-service__name {
+    display: grid;
+    gap: 10px;
+}
+
+.about-service__name>span:first-child {
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+.about-service__name>span:last-child {
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.about-service__icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.about-service__icon::before,
+.about-service__icon::after {
+    position: absolute;
+    top: 11px;
+    left: 3px;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    content: "";
+}
+
+.about-service__icon::after {
+    transform: rotate(90deg);
+    transition: transform 180ms ease;
+}
+
+.about-service[open] .about-service__icon::after {
+    transform: rotate(0);
+}
+
+.about-service__body {
+    padding: 0 52px 36px 84px;
+}
+
+.about-service__body>p {
+    max-width: 640px;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.95;
+}
+
+.about-service__body ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-service__body li {
+    padding: 7px 12px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+/* 협업 방식 */
+.about-approach {
+    border-top: 1px solid var(--color-line);
+}
+
+.about-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+}
+
+.about-step {
+    padding-top: 24px;
+    border-top: 1px solid var(--color-text);
+}
+
+.about-step__number {
+    color: var(--color-muted);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+.about-step h3 {
+    margin-top: 40px;
+    font-size: 23px;
+    letter-spacing: -0.04em;
+}
+
+.about-step p {
+    max-width: 320px;
+    margin-top: 20px;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.95;
+}
+
+/* 문의 영역 */
+.about-contact {
+    padding-block: 80px;
+    /* 공통 종이 질감이 섹션 사이에서 끊기지 않도록 배경을 투명하게 유지합니다. */
+    background: transparent;
+}
+
+.about-contact__inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.about-contact__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    min-height: 52px;
+    padding-block: 12px;
+    border-bottom: 1px solid currentColor;
+    font-size: 15px;
+}
+
+.about-contact__link>span {
+    font-size: 24px;
+    transition: transform 180ms ease;
+}
+
+.about-contact__link:hover>span {
+    transform: translate(3px, -3px);
+}
+
+.about-page+.site-footer {
+    margin-top: 0;
+}
+
+/* 모바일 */
+@media (max-width: 760px) {
+    .about-intro {
+        padding-top: 28px;
+    }
+
+    .about-meta {
+        font-size: 9px;
+    }
+
+    .about-intro__title {
+        font-size: clamp(36px, 8.5vw, 64px);
+    }
+
+    .about-intro__bottom,
+    .about-philosophy__grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .about-intro__bottom {
+        margin-top: 48px;
+    }
+
+    .about-copy {
+        font-size: 14px;
+    }
+
+    .about-philosophy__grid {
+        margin-top: 32px;
+    }
+
+    .about-key-art {
+        min-height: 280px;
+    }
+
+    .about-key {
+        width: 260px;
+        max-width: 100%;
+        height: 140px;
+        padding: 24px;
+        font-size: 30px;
+    }
+
+    .about-key>span:first-child {
+        font-size: 44px;
+    }
+
+    .about-section-heading,
+    .about-contact__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .about-section-heading {
+        margin-block: 48px 40px;
+    }
+
+    .about-service>summary {
+        grid-template-columns: 24px minmax(0, 1fr) 24px;
+        gap: 12px;
+        padding-block: 26px;
+    }
+
+    .about-service__number {
+        padding-top: 5px;
+    }
+
+    .about-service__name>span:first-child {
+        font-size: clamp(20px, 5.5vw, 28px);
+    }
+
+    .about-service__name>span:last-child {
+        font-size: 12px;
+    }
+
+    .about-service__body {
+        padding: 0 0 28px 36px;
+    }
+
+    .about-steps {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .about-step h3 {
+        margin-top: 24px;
+    }
+
+    .about-step p {
+        max-width: none;
+    }
+
+    .about-contact {
+        padding-block: 64px;
+    }
+
+    .about-contact__link {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-service__icon::after,
+    .about-contact__link>span {
+        transition: none;
+    }
+}
+
+/* ABOUT 가독성 보정: 본문 크기와 명도 대비 개선 */
+.about-page .about-copy,
+.about-page .about-service__body>p,
+.about-page .about-step p {
+    color: var(--color-muted);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+    letter-spacing: 0;
+}
+
+/* 제목 일부가 지나치게 흐리게 보이지 않도록 조정 */
+.about-page .about-intro__title>span {
+    color: #62625c;
+}
+
+/* 작은 영문 안내 문구 확대 및 과한 자간 완화 */
+.about-page .about-meta,
+.about-page .about-eyebrow,
+.about-page .about-step__number,
+.about-page .about-key-art>p,
+.about-page .text-link {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+}
+
+/* 서비스 설명 및 태그도 모바일에서 읽기 쉬운 크기로 통일 */
+.about-page .about-service__name>span:last-child {
+    font-size: 14px;
+}
+
+.about-page .about-service__body li,
+.about-page .about-service__number {
+    font-size: 12px;
+}
+
+/* 한글 제목의 지나치게 좁은 자간 완화 */
+.about-page .about-heading,
+.about-page .about-step h3 {
+    letter-spacing: -0.035em;
+}
+
+/* 서비스 제목과 설명을 위아래로 배치 */
+.about-services .about-section-heading {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* 제목 아래 설명은 작은 크기로 표시 */
+.about-services .about-section-heading > .about-copy {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* TOP 링크를 본문과 같은 좌우 기준선에 맞추고 하단 여백을 확보합니다. */
+.about-top-link {
+    padding-bottom: 32px;
+}
+
+/* HOW WE WORK를 오른쪽 본문 시작선에 맞춥니다.
+   브랜드 철학 영역의 2열 배치와 간격 80px을 기준으로 합니다. */
+.about-services > .container > .text-link {
+    margin-left: calc(50% + 40px);
+}
+
+/* TOP은 문서 흐름에서 분리해 화면 오른쪽 위에 고정합니다. */
+.about-page .about-top-link {
+    position: fixed;
+    top: 110px;
+    right: var(--page-gutter);
+    z-index: 15;
+
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 배경 위에서도 읽기 쉽도록 작은 버튼 형태로 표시합니다. */
+.about-page .about-top-link > .text-link {
+    min-height: 44px;
+    margin: 0;
+    padding: 10px 14px;
+    gap: 8px;
+
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: rgb(255 255 255 / 95%);
+    color: var(--color-text);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+}
+
+/* 모바일에서는 본문 링크를 왼쪽에 맞추고,
+   TOP은 헤더 바로 아래에 고정합니다. */
+@media (max-width: 760px) {
+    .about-services > .container > .text-link {
+        margin-left: 0;
+    }
+
+    .about-page .about-top-link {
+        top: 84px;
+        right: 16px;
+    }
+}
+
+/* TOP: 평소에는 숨기고, 스크롤 후 오른쪽 아래에 표시 */
+.about-page .about-top-link {
+    position: fixed;
+    top: auto;
+    right: clamp(20px, 3vw, 48px);
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    z-index: 15;
+
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease,
+        visibility 220ms;
+}
+
+.about-page .about-top-link.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 작고 차분한 원형 버튼 */
+.about-page .about-top-link > .text-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    width: 56px;
+    height: 56px;
+    min-height: 56px;
+    margin: 0;
+    padding: 0;
+
+    border: 1px solid rgb(37 37 37 / 15%);
+    border-radius: 50%;
+    background: rgb(255 255 255 / 94%);
+    color: #252525;
+    box-shadow: 0 3px 14px rgb(0 0 0 / 6%);
+
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+
+    transition:
+        background-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+/* 컬러 이모지는 숨기고 단색 화살표로 교체 */
+.about-page .about-top-link > .text-link > span {
+    display: none;
+}
+
+.about-page .about-top-link > .text-link::before {
+    content: "↑";
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1;
+}
+
+@media (hover: hover) {
+    .about-page .about-top-link > .text-link:hover {
+        background: #fff;
+        box-shadow: 0 5px 18px rgb(0 0 0 / 10%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-page .about-top-link,
+    .about-page .about-top-link > .text-link {
+        transition: none;
+    }
+
+    .about-page .about-top-link {
+        transform: none;
+    }
+}
+
+/* TOP 버튼을 모서리에서 안쪽으로 이동 */
+.about-page .about-top-link {
+    right: clamp(32px, 5vw, 80px);
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 크기와 대비를 높여 눈에 잘 띄도록 조정 */
+.about-page .about-top-link > .text-link {
+    width: 64px;
+    height: 64px;
+    min-height: 64px;
+
+    background: #fff;
+    border-color: rgb(37 37 37 / 28%);
+    box-shadow: 0 4px 18px rgb(0 0 0 / 12%);
+    font-size: 11px;
+}
+
+.about-page .about-top-link > .text-link::before {
+    font-size: 24px;
+}
+
+/* 모바일에서는 본문을 과하게 가리지 않도록 간격 조정 */
+@media (max-width: 760px) {
+    .about-page .about-top-link {
+        right: 24px;
+        bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+    }
+}
+/* 투명 Shift 키: 원본 각도를 유지하고 크기를 제한합니다. */
+.about-key.about-key--photo {
+    transform: none;
+    width: min(100%, 300px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: url("../image/shiftkey-transparent.webp") center / contain no-repeat;
+}
+
+@media (max-width: 760px) {
+    .about-key.about-key--photo {
+        width: min(100%, 240px);
+    }
+}
+
+/* 수정된 서비스 설명 */
+.about-services .about-section-heading > .about-copy {
+    max-width: 960px;
+}
+
+.about-page .about-service__name > span:last-child {
+    max-width: 760px;
+    line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.about-service__body > ul:first-child {
+    margin-top: 0;
+}
+
+/* 작업 프로세스: 01–04 / 05–08 / 09–11 / 12–14 */
+.about-process .about-section-heading {
+    margin-block: 48px 40px;
+}
+
+.about-process__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    align-items: stretch;
+    gap: 14px 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-process__item:nth-child(12) { grid-area: 1 / 4; }
+.about-process__item:nth-child(13) { grid-area: 2 / 4; }
+.about-process__item:nth-child(14) { grid-area: 3 / 4; }
+
+.about-process__item {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    min-width: 0;
+    padding: 20px 16px;
+    color: #252525;
+    background: linear-gradient(145deg, #f5f5f2, #deded9);
+    border: 1px solid #c4c3bb;
+}
+
+.about-process__number {
+    padding-top: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+}
+
+.about-process__item h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.about-process__item p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+    .about-process__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-auto-flow: row;
+    }
+
+    .about-process__list > .about-process__item {
+        grid-area: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-process__list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .about-process__item {
+        padding: 18px;
+    }
+}
+
+/* 변경: 단락 이동 버튼을 제거하고 각 단락의 영문 제목을 강조합니다. */
+/* 단락 제목과 YOUR NEXT SHIFT 등 영문 소제목을 강조합니다. */
+.about-page .about-meta > span,
+.about-page .about-eyebrow {
+    color: var(--color-text);
+    font-weight: 700;
+}

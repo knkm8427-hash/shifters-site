@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="쉬프터즈 — 브랜드 빌딩과 콘텐츠 크리에이티브 파트너">
+
+  <title>쉬프터즈 SHIFTERS — 브랜드·콘텐츠 크리에이티브 파트너</title>
+
+  <!-- 공통 스타일 다음에 페이지 스타일을 연결합니다. -->
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/theme.css">
+
+  <!-- HTML이 준비된 뒤 실행합니다. -->
+  <script src="./js/common.js" defer></script>
+  <script src="./js/theme.js" defer></script>
+</head>
+
+<body data-theme="light" class="page-home">
+    <!-- 변경: 페이지 이동 링크를 확장자 없는 서버 경로(/, /works, /about, /contact)로 통일했습니다. -->
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+  <!-- 공통 헤더 -->
+  <header class="site-header" id="page-top">
+    <div class="container site-header__inner">
+      <a class="site-brand" href="/" aria-label="SHIFTERS 홈">
+        SHIFTERS
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>
+        <span class="menu-toggle__label">메뉴 열기</span>
+
+        <span class="menu-toggle__icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="site-nav" id="site-navigation" aria-label="메인 메뉴">
+        <a class="site-nav__link" href="/works">WORKS</a>
+        <a class="site-nav__link" href="/about">ABOUT</a>
+        <a class="site-nav__link" href="/contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main home-page arc-home" id="main-content" tabindex="-1">
+    <h1 class="visually-hidden">쉬프터즈 SHIFTERS — 브랜드·콘텐츠 크리에이티브 파트너</h1>
+
+    <!-- 첫 화면: 키캡 사진 하나 + 바로 아래 PRESS THE SHIFT KEY -->
+    <section class="arc-hero" aria-label="SHIFTERS 소개">
+
+      <div class="arc-hero__center">
+        <button class="arc-key arc-keyphoto" type="button" aria-label="SHIFT+ERS 키캡 눌러보기">
+          <img src="./image/shifters-keys.webp" alt="SHIFT+ERS가 한 글자씩 새겨진 키보드 키캡들" width="1200" height="1200">
+        </button>
+        <div class="arc-credit arc-typewriter" aria-label="Press the shift key. Creative partner.">
+          <p class="arc-credit__title" data-type="Press the shift key" aria-hidden="true"></p>
+          <p class="arc-credit__line" data-type="Creative partner" aria-hidden="true"></p>
+        </div>
+
+        <a class="arc-more arc-more--hero" href="/works">View all works <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="site-brand" href="/" aria-label="SHIFTERS 홈">
+          SHIFTERS
+        </a>
+
+        <a class="site-footer__email" href="mailto:hello@shift-ers.com">
+          hello@shift-ers.com
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="site-footer__bottom">
+<!--        <p>CREATIVE PARTNER</p>-->
+<!--        <p>PRESS THE SHIFT KEY.</p>-->
+      </div>
+    </div>
+  </footer>
+  <!-- 변경: CONTACT와 같은 고정 TOP 버튼으로 페이지 맨 위로 이동합니다. -->
+  <a class="page-top-button" href="#page-top" aria-label="페이지 맨 위로 이동">TOP</a>
+</body>
+
+</html>
