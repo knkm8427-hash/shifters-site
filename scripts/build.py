@@ -53,7 +53,7 @@ def card_html(item: dict, no: int = 0, numbered: bool = False) -> str:
     {media}
     <span class="work-card__hint" aria-hidden="true">전체 영상 보기 ↗</span>
   </div>
-  <div class="work-card__meta">{f'<span>No.{no:03d}</span>' if numbered else ''}<span>{esc(item.get("category") or "FILM / REEL")}</span><span>{esc(item["date"])}</span></div>
+  <div class="work-card__meta">{f'<span>{no:02d}</span>' if numbered else ''}<span>{esc(item.get("category") or "FILM / REEL")}</span><span>{esc(item["date"])}</span></div>
   <h3 class="work-card__title">{title}</h3>
   <button type="button" class="work-card__open" aria-haspopup="dialog" aria-controls="work-dialog"
           aria-label="{title} 전체 영상 보기"
@@ -127,7 +127,7 @@ def render_pages(src: Path, out: Path, works: list, preview: bool) -> None:
         p = out / page
         text = p.read_text(encoding="utf-8")
         if page == "works.html":
-            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i, total - n, preview) for n, i in enumerate(works)))
+            text = text.replace("<!--WORKS_GRID-->", "".join(card_html(i, (n + 1) if preview else (total - n), preview) for n, i in enumerate(works)))
         if page == "index.html":
             text = text.replace("<!--HOME_WORKS-->", "".join(home_thumb(i, total - n) for n, i in enumerate(works[:4])))
         text = text.replace("<!--WORKS_COUNT-->", str(total))
@@ -140,7 +140,7 @@ def render_pages(src: Path, out: Path, works: list, preview: bool) -> None:
             text = text.replace("</title>", '</title>\n    <meta name="robots" content="noindex,nofollow">', 1)
             for k, v in {"/works": "works.html", "/about": "about.html", "/contact": "contact.html", "/": "index.html"}.items():
                 text = text.replace(f'href="{k}"', f'href="{v}"')
-            text = text.replace('src="media/', 'src="../media/').replace('poster="media/', 'poster="../media/').replace('data-poster="media/', 'data-poster="../media/')
+            text = text.replace('src="media/', 'src="../media/').replace('poster="media/', 'poster="../media/').replace('data-poster="media/', 'data-poster="../media/').replace('data-preview-src="media/', 'data-preview-src="../media/').replace('data-video="media/', 'data-video="../media/')
         else:
             text = text.replace("</title>", "</title>\n    " + seo_head(page, text), 1)
         p.write_text(text, encoding="utf-8")

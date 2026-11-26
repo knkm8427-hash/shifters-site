@@ -14,6 +14,7 @@ from __future__ import annotations
 import datetime as dt
 import io
 import json
+import re
 import os
 import sys
 import urllib.parse
@@ -56,6 +57,13 @@ def shortcode(permalink: str) -> str:
 def make_title(caption: str | None) -> str:
     lines = [l.strip() for l in (caption or "").splitlines() if l.strip()]
     title = lines[0] if lines else "SHIFTERS Project"
+    # 첫 줄이 긴 문장이면, 캡션의 첫 번째 작업 항목(・ Personal Branding 같은 영어 줄)을 제목으로
+    if len(title) > 40 or re.search(r"다[.!]?\W*$", title):
+        for l in lines:
+            if l.startswith(("・", "•", "·")):
+                work = re.sub(r"@\S+", "", l.lstrip("・•· ")).strip()
+                if work:
+                    return work
     limit = int(CFG.get("title_max_length", 200))
     return title[:limit]
 
@@ -105,6 +113,9 @@ def main() -> int:
         if code not in existing:
             added += 1
         video = m.get("media_url") if m.get("media_type") == "VIDEO" else None
+        local_video = ROOT / "media" / "videos" / f"{code}.mp4"
+        if local_video.exists():  # 저작권 음원 때문에 API가 영상을 안 주는 릴스: 직접 올린 무음 영상 사용
+            video = f"media/videos/{code}.mp4"
         item.update(
             {
                 "permalink": m["permalink"],

@@ -60,7 +60,7 @@
     player.play().then(() => {
       if (currentSession !== session || !dialog.open) return;
       playButton.hidden = true;
-      if (sound) sound.hidden = !player.muted;
+      if (sound) sound.hidden = !player.muted || (player.currentSrc || player.src).includes('/media/videos/');
       status.textContent = '';
     }).catch(() => {
       if (currentSession !== session || !dialog.open) return;
@@ -118,7 +118,7 @@
     sound.hidden = true;
     player.play().catch(() => {});
   });
-  player.addEventListener('volumechange', () => { if (sound) sound.hidden = !player.muted; });
+  player.addEventListener('volumechange', () => { if (sound) sound.hidden = !player.muted || (player.currentSrc || player.src).includes('/media/videos/'); });
   player.addEventListener('error', () => {
     if (!dialog.open || !player.getAttribute('src')) return;
     status.textContent = '영상을 불러오지 못했습니다. Instagram 원문을 확인해 주세요.';
